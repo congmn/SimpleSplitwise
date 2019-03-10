@@ -30,9 +30,12 @@ class AlertController: NSObject {
         }
         alertController?.addAction(confirmAction)
         alertController?.addAction(cancelAction)
-        alertController?.addTextField { textField in
-            textField.keyboardType = keyboardType
-            textField.placeholder = placeholder
+        alertController?.addTextField { [weak self] in
+            $0.keyboardType = keyboardType
+            if keyboardType == .decimalPad {
+                $0.addTarget(self?.alertController, action: #selector(self?.alertController?.validateDoubleNumber), for: .editingChanged)
+            }
+            $0.placeholder = placeholder
         }
         
         if alertController != nil {
