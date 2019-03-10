@@ -2,6 +2,7 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18D109" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Bill" representedClassName="Bill" syncable="YES" codeGenerationType="class">
         <attribute name="amount" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="rule" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="group" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Group" inverseName="bills" inverseEntity="Group" syncable="YES"/>
@@ -18,8 +19,8 @@
         <relationship name="groups" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Group" inverseName="members" inverseEntity="Group" syncable="YES"/>
     </entity>
     <elements>
+        <element name="Bill" positionX="-153.23046875" positionY="110.35546875" width="128" height="135"/>
         <element name="Group" positionX="-244.953125" positionY="-18.15625" width="128" height="88"/>
         <element name="Person" positionX="-63" positionY="-18" width="128" height="88"/>
-        <element name="Bill" positionX="-153.23046875" positionY="110.35546875" width="128" height="118"/>
     </elements>
 </model>
