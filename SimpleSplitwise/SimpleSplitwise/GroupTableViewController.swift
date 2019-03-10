@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  GroupTableViewController.swift
 //  SimpleSplitwise
 //
 //  Created by Cong Nguyen on 3/7/19.
@@ -8,13 +8,9 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class GroupTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
-
-
 }
-

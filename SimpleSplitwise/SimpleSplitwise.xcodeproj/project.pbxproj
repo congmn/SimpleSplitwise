@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		483ED69922315E5F00981E68 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483ED69822315E5F00981E68 /* AppDelegate.swift */; };
-		483ED69B22315E5F00981E68 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483ED69A22315E5F00981E68 /* ViewController.swift */; };
 		483ED69E22315E5F00981E68 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 483ED69C22315E5F00981E68 /* Main.storyboard */; };
 		483ED6A122315E5F00981E68 /* SimpleSplitwise.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 483ED69F22315E5F00981E68 /* SimpleSplitwise.xcdatamodeld */; };
 		483ED6A322315E6100981E68 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 483ED6A222315E6100981E68 /* Assets.xcassets */; };
 		483ED6A622315E6100981E68 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 483ED6A422315E6100981E68 /* LaunchScreen.storyboard */; };
 		483ED6B122315E6100981E68 /* SimpleSplitwiseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483ED6B022315E6100981E68 /* SimpleSplitwiseTests.swift */; };
+		483ED6C0223169FE00981E68 /* PersonTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483ED6BF223169FE00981E68 /* PersonTableViewController.swift */; };
+		483ED6C222316A0B00981E68 /* GroupTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483ED6C122316A0B00981E68 /* GroupTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,7 +30,6 @@
 /* Begin PBXFileReference section */
 		483ED69522315E5F00981E68 /* SimpleSplitwise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleSplitwise.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		483ED69822315E5F00981E68 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		483ED69A22315E5F00981E68 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		483ED69D22315E5F00981E68 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		483ED6A022315E5F00981E68 /* SimpleSplitwise.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SimpleSplitwise.xcdatamodel; sourceTree = "<group>"; };
 		483ED6A222315E6100981E68 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -38,6 +38,8 @@
 		483ED6AC22315E6100981E68 /* SimpleSplitwiseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleSplitwiseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		483ED6B022315E6100981E68 /* SimpleSplitwiseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleSplitwiseTests.swift; sourceTree = "<group>"; };
 		483ED6B222315E6100981E68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		483ED6BF223169FE00981E68 /* PersonTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonTableViewController.swift; sourceTree = "<group>"; };
+		483ED6C122316A0B00981E68 /* GroupTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +82,8 @@
 			isa = PBXGroup;
 			children = (
 				483ED69822315E5F00981E68 /* AppDelegate.swift */,
-				483ED69A22315E5F00981E68 /* ViewController.swift */,
+				483ED6BF223169FE00981E68 /* PersonTableViewController.swift */,
+				483ED6C122316A0B00981E68 /* GroupTableViewController.swift */,
 				483ED69C22315E5F00981E68 /* Main.storyboard */,
 				483ED6A222315E6100981E68 /* Assets.xcassets */,
 				483ED6A422315E6100981E68 /* LaunchScreen.storyboard */,
@@ -200,9 +203,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				483ED69B22315E5F00981E68 /* ViewController.swift in Sources */,
 				483ED69922315E5F00981E68 /* AppDelegate.swift in Sources */,
+				483ED6C222316A0B00981E68 /* GroupTableViewController.swift in Sources */,
 				483ED6A122315E5F00981E68 /* SimpleSplitwise.xcdatamodeld in Sources */,
+				483ED6C0223169FE00981E68 /* PersonTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
