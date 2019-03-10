@@ -19,18 +19,11 @@ class PersonTableViewController: UITableViewController {
     }
     
     @IBAction func addPerson(_ sender: UIBarButtonItem) {
-        let alertController = UIAlertController(title: "Add Person", message: "", preferredStyle: .alert)
-        let saveAction = UIAlertAction(title: "Save", style: .default) { [weak self] alert in
-            guard let textField = alertController.textFields?.first, let name = textField.text else { return }
-            self?.savePerson(withName: name)
+        AlertController.shared.showInputAlert(title: "Add Person", message: "", confirmTitle: "Save", cancelTitle: "Cancel", keyboardType: .default, placeholder: "Name") { [weak self] (confirmed, text) in
+            if confirmed, let name = text {
+                self?.savePerson(withName: name)
+            }
         }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        alertController.addAction(saveAction)
-        alertController.addAction(cancelAction)
-        alertController.addTextField { textField in
-            textField.placeholder = "Name"
-        }
-        present(alertController, animated: true, completion: nil)
     }
     
     private func savePerson(withName name: String) {

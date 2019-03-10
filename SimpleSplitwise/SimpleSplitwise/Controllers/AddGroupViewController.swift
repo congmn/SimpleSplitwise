@@ -17,7 +17,6 @@ class AddGroupViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        groupNameTextField.delegate = self
         people = DatabaseHelper.fetchPeople()
     }
     
@@ -45,7 +44,6 @@ class AddGroupViewController: UIViewController {
     private func dismissScreen() {
         dismiss(animated: true, completion: nil)
     }
-    
 }
 
 // MARK: - Table view data source

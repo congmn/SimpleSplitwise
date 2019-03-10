@@ -12,9 +12,10 @@ class GroupTableViewController: UITableViewController {
     
     private var groups: [Group] = []
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         groups = DatabaseHelper.fetchGroups()
+        tableView.reloadData()
     }
 }
 

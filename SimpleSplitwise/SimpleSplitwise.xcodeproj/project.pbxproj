@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		48053F212235027700298C83 /* DatabaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48053F202235027700298C83 /* DatabaseHelper.swift */; };
 		48053F252235037400298C83 /* AddGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48053F242235037400298C83 /* AddGroupViewController.swift */; };
+		48053F272235197000298C83 /* AddBillTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48053F262235197000298C83 /* AddBillTableViewController.swift */; };
+		48053F292235259700298C83 /* SelectGroupTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48053F282235259700298C83 /* SelectGroupTableViewController.swift */; };
+		48053F2B22352E9B00298C83 /* SelectPaidPersonTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48053F2A22352E9B00298C83 /* SelectPaidPersonTableViewController.swift */; };
+		48053F30223542DA00298C83 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48053F2F223542DA00298C83 /* UIApplication+Extension.swift */; };
+		48053F32223544C000298C83 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48053F31223544C000298C83 /* AlertController.swift */; };
 		483ED69922315E5F00981E68 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483ED69822315E5F00981E68 /* AppDelegate.swift */; };
 		483ED69E22315E5F00981E68 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 483ED69C22315E5F00981E68 /* Main.storyboard */; };
 		483ED6A122315E5F00981E68 /* SimpleSplitwise.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 483ED69F22315E5F00981E68 /* SimpleSplitwise.xcdatamodeld */; };
@@ -32,6 +37,11 @@
 /* Begin PBXFileReference section */
 		48053F202235027700298C83 /* DatabaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseHelper.swift; sourceTree = "<group>"; };
 		48053F242235037400298C83 /* AddGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroupViewController.swift; sourceTree = "<group>"; };
+		48053F262235197000298C83 /* AddBillTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBillTableViewController.swift; sourceTree = "<group>"; };
+		48053F282235259700298C83 /* SelectGroupTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectGroupTableViewController.swift; sourceTree = "<group>"; };
+		48053F2A22352E9B00298C83 /* SelectPaidPersonTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPaidPersonTableViewController.swift; sourceTree = "<group>"; };
+		48053F2F223542DA00298C83 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
+		48053F31223544C000298C83 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		483ED69522315E5F00981E68 /* SimpleSplitwise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleSplitwise.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		483ED69822315E5F00981E68 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		483ED69D22315E5F00981E68 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -67,9 +77,13 @@
 		48053F222235032700298C83 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				48053F31223544C000298C83 /* AlertController.swift */,
 				483ED6BF223169FE00981E68 /* PersonTableViewController.swift */,
 				483ED6C122316A0B00981E68 /* GroupTableViewController.swift */,
 				48053F242235037400298C83 /* AddGroupViewController.swift */,
+				48053F262235197000298C83 /* AddBillTableViewController.swift */,
+				48053F282235259700298C83 /* SelectGroupTableViewController.swift */,
+				48053F2A22352E9B00298C83 /* SelectPaidPersonTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -80,6 +94,14 @@
 				48053F202235027700298C83 /* DatabaseHelper.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		48053F2E223542B600298C83 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				48053F2F223542DA00298C83 /* UIApplication+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		483ED68C22315E5F00981E68 = {
@@ -105,6 +127,7 @@
 			children = (
 				48053F222235032700298C83 /* Controllers */,
 				48053F232235033C00298C83 /* Helpers */,
+				48053F2E223542B600298C83 /* Extensions */,
 				483ED69822315E5F00981E68 /* AppDelegate.swift */,
 				483ED69C22315E5F00981E68 /* Main.storyboard */,
 				483ED6A222315E6100981E68 /* Assets.xcassets */,
@@ -227,9 +250,14 @@
 			files = (
 				483ED69922315E5F00981E68 /* AppDelegate.swift in Sources */,
 				48053F212235027700298C83 /* DatabaseHelper.swift in Sources */,
+				48053F2B22352E9B00298C83 /* SelectPaidPersonTableViewController.swift in Sources */,
 				483ED6C222316A0B00981E68 /* GroupTableViewController.swift in Sources */,
+				48053F292235259700298C83 /* SelectGroupTableViewController.swift in Sources */,
 				483ED6A122315E5F00981E68 /* SimpleSplitwise.xcdatamodeld in Sources */,
+				48053F272235197000298C83 /* AddBillTableViewController.swift in Sources */,
 				48053F252235037400298C83 /* AddGroupViewController.swift in Sources */,
+				48053F32223544C000298C83 /* AlertController.swift in Sources */,
+				48053F30223542DA00298C83 /* UIApplication+Extension.swift in Sources */,
 				483ED6C0223169FE00981E68 /* PersonTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

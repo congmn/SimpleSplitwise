@@ -5,6 +5,7 @@
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="rule" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ruleDetails" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="group" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Group" inverseName="bills" inverseEntity="Group" syncable="YES"/>
         <relationship name="paidPerson" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Person" inverseName="billsPaid" inverseEntity="Person" syncable="YES"/>
     </entity>
@@ -19,7 +20,7 @@
         <relationship name="groups" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Group" inverseName="members" inverseEntity="Group" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Bill" positionX="-153.23046875" positionY="110.35546875" width="128" height="135"/>
+        <element name="Bill" positionX="-153.23046875" positionY="110.35546875" width="128" height="148"/>
         <element name="Group" positionX="-244.953125" positionY="-18.15625" width="128" height="88"/>
         <element name="Person" positionX="-63" positionY="-18" width="128" height="88"/>
     </elements>

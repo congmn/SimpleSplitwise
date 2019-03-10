@@ -10,19 +10,20 @@ import UIKit
 import CoreData
 
 struct DatabaseHelper {
+    static var context: NSManagedObjectContext? = {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return nil }
+        return appDelegate.persistentContainer.viewContext
+    }()
+    
     static func fetchPeople() -> [Person] {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return [] }
-        let context = appDelegate.persistentContainer.viewContext
         let request: NSFetchRequest<Person> = Person.fetchRequest()
-        guard let people = try? context.fetch(request) else { return [] }
-        return people
+        guard let people = try? context?.fetch(request) else { return [] }
+        return people ?? []
     }
     
     static func fetchGroups() -> [Group] {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return [] }
-        let context = appDelegate.persistentContainer.viewContext
         let request: NSFetchRequest<Group> = Group.fetchRequest()
-        guard let groups = try? context.fetch(request) else { return [] }
-        return groups
+        guard let groups = try? context?.fetch(request) else { return [] }
+        return groups ?? []
     }
 }
