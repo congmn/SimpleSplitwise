@@ -42,6 +42,38 @@ class AddBillTableViewController: UITableViewController {
         updateDateViews()
     }
     
+    @IBAction func saveBill(_ sender: UIButton) {
+        guard let name = descriptionTextField.text else {
+            AlertController.shared.showMessageAlert(message: "Please add a description first")
+            return
+        }
+        guard let group = selectedGroup,
+            let paidPerson = selectedPaidPerson,
+            let amount = selectedAmount,
+            let rule = selectedRule,
+            let ruleDetails = selectedRuleDetails else {
+            AlertController.shared.showMessageAlert(message: "Not enough details for splitting. Please fill out the missing details.")
+            return
+        }
+        guard amount > 0 else {
+            AlertController.shared.showMessageAlert(message: "Amount must be greater than zero")
+            return
+        }
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let context = appDelegate.persistentContainer.viewContext
+        let bill = Bill(context: context)
+        bill.name = name
+        bill.date = datePicker.date
+        bill.group = group
+        bill.paidPerson = paidPerson
+        bill.amount = amount
+        bill.rule = Int16(rule)
+        bill.ruleDetails = ruleDetails
+        appDelegate.saveContext()
+        resetBill()
+        AlertController.shared.showMessageAlert(message: "Success")
+    }
+    
     private func updateDateViews() {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
@@ -61,6 +93,16 @@ class AddBillTableViewController: UITableViewController {
         } else {
             selectedRuleLabel.text = "Not Set"
         }
+    }
+    
+    private func resetBill() {
+        descriptionTextField.text = ""
+        selectedGroup = nil
+        selectedPaidPerson = nil
+        selectedAmount = nil
+        selectedRule = nil
+        selectedRuleDetails = nil
+        updateLabels()
     }
     
     // MARK: - Navigation
@@ -118,6 +160,8 @@ extension AddBillTableViewController {
             AlertController.shared.showInputAlert(title: "Amount", message: "", confirmTitle: "Save", cancelTitle: "Cancel", keyboardType: .decimalPad, placeholder: "0.00") { [weak self] (confirmed, text) in
                 if confirmed, let stringValue = text, let value = Double(stringValue) {
                     self?.selectedAmount = (value * 100).rounded() / 100
+                    self?.selectedRule = nil
+                    self?.selectedRuleDetails = nil
                     self?.updateLabels()
                 }
             }
