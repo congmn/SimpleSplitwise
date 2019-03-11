@@ -17,7 +17,7 @@ class SelectPaidPersonTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        people = selectedGroup?.members?.allObjects as? [Person] ?? []
+        people = (selectedGroup?.members?.allObjects as? [Person])?.sorted(by: { ($0.name ?? "") < ($1.name ?? "") }) ?? []
     }
 }
 

@@ -42,4 +42,17 @@ class AlertController: NSObject {
             UIApplication.topViewController()?.present(alertController!, animated: true, completion: nil)
         }
     }
+    
+    func showMessageAlert(message: String) {
+        if alertController != nil {
+            alertController?.dismiss(animated: true, completion: nil)
+            alertController = nil
+        }
+        alertController = UIAlertController(title: message, message: "", preferredStyle: .alert)
+        let okayAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alertController?.addAction(okayAction)
+        if alertController != nil {
+            UIApplication.topViewController()?.present(alertController!, animated: true, completion: nil)
+        }
+    }
 }

@@ -18,12 +18,12 @@ struct DatabaseHelper {
     static func fetchPeople() -> [Person] {
         let request: NSFetchRequest<Person> = Person.fetchRequest()
         guard let people = try? context?.fetch(request) else { return [] }
-        return people ?? []
+        return people?.sorted(by: { ($0.name ?? "") < ($1.name ?? "") }) ?? []
     }
     
     static func fetchGroups() -> [Group] {
         let request: NSFetchRequest<Group> = Group.fetchRequest()
         guard let groups = try? context?.fetch(request) else { return [] }
-        return groups ?? []
+        return groups?.sorted(by: { ($0.name ?? "") < ($1.name ?? "") }) ?? []
     }
 }

@@ -16,6 +16,7 @@ class AddBillTableViewController: UITableViewController {
     @IBOutlet weak var selectedGroupLabel: UILabel!
     @IBOutlet weak var selectedPaidPersonLabel: UILabel!
     @IBOutlet weak var selectedAmountLabel: UILabel!
+    @IBOutlet weak var selectedRuleLabel: UILabel!
     
     private let datePickerIndexPath = IndexPath(row: 1, section: 1)
     private let amountIndexPath = IndexPath(row: 2, section: 2)
@@ -27,6 +28,8 @@ class AddBillTableViewController: UITableViewController {
     private var selectedGroup: Group?
     private var selectedPaidPerson: Person?
     private var selectedAmount: Double?
+    private var selectedRule: Int?
+    private var selectedRuleDetails: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,11 +54,28 @@ class AddBillTableViewController: UITableViewController {
         if let amount = selectedAmount {
             selectedAmountLabel.text = "$" + String(format: "%.2f", amount)
         } else {
-            selectedAmountLabel.text = "Not Set"
+            selectedAmountLabel.text = "$0.00"
+        }
+        if let ruleIndex = selectedRule {
+            selectedRuleLabel.text = SplitRule.allCases[ruleIndex].text
+        } else {
+            selectedRuleLabel.text = "Not Set"
         }
     }
     
     // MARK: - Navigation
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier == "SelectPaidPerson" && selectedGroup == nil {
+            AlertController.shared.showMessageAlert(message: "Select group first")
+            return false
+        }
+        if identifier == "SelectSplitRule" && (selectedGroup == nil || selectedAmount == nil || selectedAmount == 0.0) {
+            AlertController.shared.showMessageAlert(message: "Select group and a positive amount first")
+            return false
+        }
+        return true
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SelectGroup", let destination = segue.destination as? SelectGroupTableViewController {
@@ -66,6 +86,13 @@ class AddBillTableViewController: UITableViewController {
             destination.delegate = self
             destination.selectedGroup = selectedGroup
             destination.selectedPaidPerson = selectedPaidPerson
+        }
+        if segue.identifier == "SelectSplitRule", let destination = segue.destination as? SplitRuleViewController {
+            destination.delegate = self
+            destination.selectedGroup = selectedGroup
+            destination.selectedAmount = selectedAmount
+            destination.selectedRule = selectedRule
+            destination.selectedRuleDetails = selectedRuleDetails
         }
     }
 }
@@ -116,6 +143,8 @@ extension AddBillTableViewController: SelectGroupTableViewControllerDelegate {
         guard group != selectedGroup else { return }
         selectedGroup = group
         selectedPaidPerson = nil
+        selectedRule = nil
+        selectedRuleDetails = nil
         updateLabels()
     }
 }
@@ -125,6 +154,16 @@ extension AddBillTableViewController: SelectGroupTableViewControllerDelegate {
 extension AddBillTableViewController: SelectPaidPersonTableViewControllerDelegate {
     func didSelect(person: Person) {
         selectedPaidPerson = person
+        updateLabels()
+    }
+}
+
+// MARK: - Select split rule delegate
+
+extension AddBillTableViewController: SelectSplitRuleDelegate {
+    func didSelect(rule: Int, ruleDetails: String) {
+        selectedRule = rule
+        selectedRuleDetails = ruleDetails
         updateLabels()
     }
 }
