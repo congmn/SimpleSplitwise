@@ -19,6 +19,10 @@ enum SplitRule: Int, CaseIterable {
         let allTexts = ["Equally", "Exact Amount", "Adjustment", "Percent", "Share"]
         return allTexts[rawValue]
     }
+    
+    static func rule(fromValue value: Int) -> SplitRule {
+        return SplitRule.allCases.indices.contains(value) ? SplitRule.allCases[value] : .equally
+    }
 }
 
 class SplitRuleViewController: UIViewController {

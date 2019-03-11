@@ -43,12 +43,12 @@ class AlertController: NSObject {
         }
     }
     
-    func showMessageAlert(message: String) {
+    func showMessageAlert(title: String = "", message: String) {
         if alertController != nil {
             alertController?.dismiss(animated: true, completion: nil)
             alertController = nil
         }
-        alertController = UIAlertController(title: message, message: "", preferredStyle: .alert)
+        alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okayAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alertController?.addAction(okayAction)
         if alertController != nil {

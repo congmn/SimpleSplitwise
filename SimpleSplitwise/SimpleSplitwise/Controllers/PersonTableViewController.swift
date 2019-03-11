@@ -51,3 +51,12 @@ extension PersonTableViewController {
         return cell
     }
 }
+
+// MARK: - Table view delegate
+
+extension PersonTableViewController {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
+        AlertController.shared.showMessageAlert(title: "Expense Diary", message: DatabaseHelper.getExpenseDiary(ofPerson: people[indexPath.row]))
+    }
+}
