@@ -97,6 +97,8 @@ class AddBillTableViewController: UITableViewController {
     
     private func resetBill() {
         descriptionTextField.text = ""
+        datePicker.date = Calendar.current.startOfDay(for: Date())
+        updateDateViews()
         selectedGroup = nil
         selectedPaidPerson = nil
         selectedAmount = nil

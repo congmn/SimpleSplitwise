@@ -32,3 +32,12 @@ extension GroupTableViewController {
         return cell
     }
 }
+
+// MARK: - Table view delegate
+
+extension GroupTableViewController {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
+        AlertController.shared.showMessageAlert(title: "Overall Balance", message: DatabaseHelper.getOverallBalance(ofGroup: groups[indexPath.row]))
+    }
+}
